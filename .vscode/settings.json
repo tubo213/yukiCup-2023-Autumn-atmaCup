@@ -23,7 +23,6 @@
     "${workspaceFolder}/.venv/bin/mypy"
   ],
   "files.autoSave": "afterDelay",
-  "flake8.args": [
-    "--max-line-length=99",
-  ]
+  // flake8を無効化
+  "python.linting.enabled": false,
 }
