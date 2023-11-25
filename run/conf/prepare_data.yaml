@@ -16,6 +16,7 @@ defaults:
 seed: 42
 n_splits: 5
 target_col: is_kokuhou
+sep: " "
 text_cols:
   - "棟名"
   - "種別2"
@@ -26,3 +27,5 @@ text_cols:
   - "保管施設の名称"
   - "所有者名"
   - "管理団体又は責任者"
+  # - "緯度"
+  # - "経度"
