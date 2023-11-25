@@ -1,0 +1,28 @@
+# ---------- Overriding hydra default configs ----------
+hydra:
+  job:
+    name: prepare_data
+    chdir: true
+  run:
+    dir: ${dir.output_dir}/${hydra.job.name}/${hydra.job.override_dirname}
+  sweep:
+    dir: ${dir.output_dir}/${hydra.job.name}/
+    subdir: ${hydra.job.override_dirname}
+
+defaults:
+  - _self_
+  - dir: local
+
+seed: 42
+n_splits: 5
+target_col: is_kokuhou
+text_cols:
+  - "棟名"
+  - "種別2"
+  - "国"
+  - "時代"
+  - "都道府県 ※美工品は「所有者住所（所在都道府県）」"
+  - "所在地"
+  - "保管施設の名称"
+  - "所有者名"
+  - "管理団体又は責任者"
