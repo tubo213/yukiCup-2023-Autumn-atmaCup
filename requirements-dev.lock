@@ -169,6 +169,7 @@ soupsieve==2.4.1
 stack-data==0.6.2
 streamlit==1.25.0
 sympy==1.12
+tabulate==0.9.0
 tenacity==8.2.2
 terminado==0.17.1
 threadpoolctl==3.2.0
