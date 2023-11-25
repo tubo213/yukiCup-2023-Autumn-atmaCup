@@ -41,6 +41,11 @@ def main(cfg):
     data_dir = Path(cfg.dir.data_dir)
     train_df = pd.read_csv(data_dir / "train.csv")
     test_df = pd.read_csv(data_dir / "test.csv")
+    era_df = pd.read_csv(data_dir / "era.csv")
+
+    # merge era
+    train_df = pd.merge(train_df, era_df, on="時代", how="left")
+    test_df = pd.merge(test_df, era_df, on="時代", how="left")
 
     # create folds
     train_df = create_folds(train_df, n_splits=cfg.n_splits, seed=cfg.seed)
