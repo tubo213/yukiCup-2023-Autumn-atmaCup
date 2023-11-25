@@ -46,14 +46,14 @@ def main(cfg):
     train_df = create_folds(train_df, n_splits=cfg.n_splits, seed=cfg.seed)
 
     # create target
-    train_df["target"] = train_df[cfg.target_col]
+    train_df["labels"] = train_df[cfg.target_col]
 
     # connect text
-    train_df["text"] = connect_text(train_df, text_cols=cfg.text_cols)
-    test_df["text"] = connect_text(test_df, text_cols=cfg.text_cols)
+    train_df["text"] = connect_text(train_df, text_cols=cfg.text_cols, sep=cfg.sep)
+    test_df["text"] = connect_text(test_df, text_cols=cfg.text_cols, sep=cfg.sep)
 
     # save
-    train_df[["text", "target", "fold"]].to_csv(processed_dir / "train.csv", index=False)
+    train_df[["text", "labels", "fold"]].to_csv(processed_dir / "train.csv", index=False)
     test_df[["text"]].to_csv(processed_dir / "test.csv", index=False)
 
 
